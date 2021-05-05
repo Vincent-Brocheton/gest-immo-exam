@@ -22,6 +22,7 @@ class HomeController{
 
     public function home(){
         View::setTemplate('home');
+        View::bindVariable('title', "Accueil");
         View::display();
     }
 }
