@@ -1,0 +1,16 @@
+{
+    "name": "vince/hotel-exam",
+    "description": "examen de cr\u0000ation d'une application de gestion hoteli\u0000re",
+    "type": "project",
+    "require": {
+        "twbs/bootstrap": "^4.6",
+        "components/jquery": "^3.5"
+    },
+    "license": "GPL 3.0",
+    "authors": [
+        {
+            "name": "Vince-Dev",
+            "email": "vinc.brocheton@gmail.com"
+        }
+    ]
+}
