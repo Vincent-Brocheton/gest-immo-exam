@@ -12,6 +12,8 @@ class HotelController {
         $router = new Router();
         $router->addRoute(new Route("/new", "HotelController", "newChambre"));
         $router->addRoute(new Route("/add", "HotelController", "addChambre"));
+        $router->addRoute(new Route("/see", "HotelController", "seeChambre"));
+        $router->addRoute(new Route("/reservations", "HotelController", "reservedChambre"));
 
         $route = $router->findRoute();
 
@@ -20,6 +22,14 @@ class HotelController {
         }else{
             echo "Page Not Found";
         }
+    }
+
+    public static function reservedChambre(){
+
+    }
+
+    public static function seeChambre(){
+
     }
 
     public static function newChambre(){

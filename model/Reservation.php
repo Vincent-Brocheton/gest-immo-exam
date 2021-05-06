@@ -7,4 +7,7 @@ class Reservation{
     public $DateDebutReserv;
     public $DateFinReserv;
 
+    public function makeReservation(){
+
+    }
 }

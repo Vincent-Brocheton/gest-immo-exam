@@ -23,4 +23,16 @@ class Chambre{
         databaseConnexion::close();
 
     }
+
+    public function getAll(){
+        $dbh = databaseConnexion::open();
+        $query = "SELECT * FROM chambre as a JOIN categorie as b ON a.CodeCategorie = b.CodeCategorie WHERE NumHotel = :NumHotel;";
+        $sth = $dbh->prepare($query);
+        $sth->bindParam(':NumHotel', $this->NumHotel);
+        $sth->execute();
+        $sth->setFetchMode(\PDO::FETCH_CLASS, "Valarep\\model\\Chambre");
+        $items = $sth->fetchAll();
+        databaseConnexion::close();
+        return $items;
+    }
 }
