@@ -40,6 +40,8 @@ class ClientController{
         $reservation = new Reservation;
         $reservation->CodeClient = $_SESSION['user']->CodeClient;
         $reservation->NumChambre = $id;
+        $reservation->DateDebutReserv = $_POST['dateDebutReserv'];
+        $reservation->DateFinReserv = $_POST['dateFinReserv'];
         $reservation->makeReservation();
     }
 
