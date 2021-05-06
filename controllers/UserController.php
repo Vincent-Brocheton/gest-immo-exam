@@ -41,6 +41,12 @@ class UserController{
     }
 
     public function logout(){
+        unset($_SESSION['user']);
+        $router = new Router();
+
+        $path =  $router->getBasePath();
+
+        header("location: {$path}/");
     }
 
     public function hotelRegistration(){
@@ -101,7 +107,6 @@ class UserController{
         try {
             $login = new User;
             $loginUser = $login->recupUser($_POST['email'], $_POST['password']);
-            var_dump($loginUser);
         } catch (Exception $e) {
             echo $e->getMessage();
             die();
@@ -112,6 +117,11 @@ class UserController{
                 $client = new Client;
                 $client->id_user = $loginUser->id_user;
                 $_SESSION['user'] = $client->connect();
+                $router = new Router();
+
+                $path =  $router->getBasePath();
+
+                header("location: {$path}/");
             } catch (Exception $e) {
                 echo $e->getMessage();
                 die();
@@ -121,6 +131,11 @@ class UserController{
                 $hotel = new Hotel;
                 $hotel->id_user = $loginUser->id_user;
                 $_SESSION['user'] = $hotel->connect();
+                $router = new Router();
+
+                $path =  $router->getBasePath();
+
+                header("location: {$path}/");
             } catch (Exception $e) {
                 echo $e->getMessage();
                 die();

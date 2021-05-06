@@ -38,6 +38,7 @@ class Client extends User{
         $sth->execute();
         $sth->setFetchMode(PDO::FETCH_CLASS, "Valarep\\model\\Client");
         $item = $sth->fetch();
+        var_dump($item);
         if(!$item){
             throw new Exception("L'Hotel n'existe pas");
         }

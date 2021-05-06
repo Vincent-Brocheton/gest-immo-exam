@@ -2,9 +2,9 @@
 namespace Valarep;
 
 // début de l'application web
-
 // Chargement automatique des classes
 require_once "vendor/autoload.php";
+session_start();
 
 $router = new Router();
 $router->addRoute(new Route("/", "HomeController"));

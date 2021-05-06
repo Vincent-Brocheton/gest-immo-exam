@@ -1,6 +1,7 @@
 <?php
 namespace Valarep\controllers;
 
+use Valarep\model\Client;
 use Valarep\Route;
 use Valarep\Router;
 use Valarep\View;

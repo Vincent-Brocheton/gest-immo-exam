@@ -8,15 +8,25 @@
       <li class="nav-item active">
         <a class="nav-link" href="<?= $path ?>/">Accueil</a>
       </li>
+      <?php if(isset($_SESSION['user'])): ?>
+      <?php if($_SESSION['user']->role === "CLIENT"): ?>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">Reserver une chambre</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="#">Voir mes reservations</a>
+      </li>
+      <?php endif; ?>
+
+      <?php if($_SESSION['user']->role === "HOTEL"): ?>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Ajouter une chambre</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <a class="nav-link" href="#">Voir les reservations</a>
       </li>
+      <?php endif; ?>
+      <?php endif; ?>
     </ul>
     <?php if(isset($_SESSION['user'])): ?>
         <a href="<?= $path ?>/logout" class="btn btn-danger mr-2">Deconnexion</a>
