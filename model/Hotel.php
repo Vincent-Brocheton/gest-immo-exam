@@ -40,4 +40,15 @@ class Hotel extends User{
         databaseConnexion::close();
         return $item;
     }
+
+    public function getAll(){
+        $dbh = databaseConnexion::open();
+        $query = "SELECT * FROM hotel;";
+        $sth = $dbh->prepare($query);
+        $sth->execute();
+        $sth->setFetchMode(PDO::FETCH_CLASS, "Valarep\\model\\Hotel");
+        $items = $sth->fetchAll();
+        databaseConnexion::close();
+        return $items;
+    }
 }

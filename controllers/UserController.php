@@ -42,6 +42,7 @@ class UserController{
 
     public function logout(){
         unset($_SESSION['user']);
+        
         $router = new Router();
 
         $path =  $router->getBasePath();

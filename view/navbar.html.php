@@ -20,7 +20,7 @@
 
       <?php if($_SESSION['user']->role === "HOTEL"): ?>
       <li class="nav-item">
-        <a class="nav-link" href="#">Ajouter une chambre</a>
+        <a class="nav-link" href="<?= $path ?>/new">Ajouter une chambre</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Voir les reservations</a>

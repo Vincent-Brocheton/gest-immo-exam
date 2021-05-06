@@ -14,8 +14,12 @@ $router->addRoute(new Route("/connect", "UserController"));
 $router->addRoute(new Route("/register", "UserController"));
 $router->addRoute(new Route("/register/hotel", "UserController"));
 $router->addRoute(new Route("/register/client", "UserController"));
-if(isset($_SESSION)){
+if(isset($_SESSION['user'])){
     $router->addRoute(new Route("/logout", "UserController"));
+    if($_SESSION['user']->role === "HOTEL"){
+        $router->addRoute(new Route("/new", "HotelController"));
+        $router->addRoute(new Route("/add", "HotelController"));
+    }
 }
 
 $route = $router->findRoute();

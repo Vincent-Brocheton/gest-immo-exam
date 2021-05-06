@@ -40,7 +40,7 @@ class Client extends User{
         $item = $sth->fetch();
         var_dump($item);
         if(!$item){
-            throw new Exception("L'Hotel n'existe pas");
+            throw new Exception("Le client n'existe pas");
         }
         databaseConnexion::close();
         return $item;
