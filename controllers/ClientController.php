@@ -43,6 +43,12 @@ class ClientController{
         $reservation->DateDebutReserv = $_POST['dateDebutReserv'];
         $reservation->DateFinReserv = $_POST['dateFinReserv'];
         $reservation->makeReservation();
+
+        $router = new Router();
+
+        $path= $router->getBasePath();
+
+        header("location: ${path}/");
     }
 
     public static function viewHotel($id){
