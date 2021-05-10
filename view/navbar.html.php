@@ -24,7 +24,7 @@
                         <a class="nav-link" href="<?= $path ?>/new">Ajouter une chambre</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= $path ?>/see">Voir les reservations</a>
+                        <a class="nav-link" href="<?= $path ?>/reservations">Voir les reservations</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= $path ?>/all">Voir les Chambres</a>

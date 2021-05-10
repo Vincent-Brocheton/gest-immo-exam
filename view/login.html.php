@@ -12,7 +12,7 @@
             <input class="form-control" type="email" name="email" id="email">
         </div>
         <div>
-            <label for="password">Votre Prénom :</label>
+            <label for="password">Mot de Passe :</label>
             <input class="form-control" type="password" name="password" id="password">
         </div>
         <div class="d-flex justify-content-end mt-4">

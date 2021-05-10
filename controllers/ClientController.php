@@ -65,7 +65,27 @@ class ClientController{
     }
 
     public static function viewReservations(){
-
+        $reservation = new Reservation;
+        $reservation->CodeClient = $_SESSION['user']->CodeClient;
+        $allReservations = $reservation->getReservationByClients();
+        $today = date('d/m/Y');
+        foreach($allReservations as $reservation){
+            $reservation->DateDebutReserv = date_create($reservation->DateDebutReserv);
+            $reservation->DateDebutReserv = date_format($reservation->DateDebutReserv,'d/m/Y');
+            $reservation->DateFinReserv = date_create($reservation->DateFinReserv);
+            $reservation->DateFinReserv = date_format($reservation->DateFinReserv,'d/m/Y');
+            if($today < $reservation->DateDebutReserv){
+                $reservation->EtatReserv = "A venir";
+            } elseif($today > $reservation->DateFinReserv){
+                $reservation->EtatReserv = "Terminée";
+            }else{
+                $reservation->EtatReserv = "En Cours";
+            }
+        }
+        View::setTemplate('viewReservation');
+        View::bindVariable('title', "Voir vos reservations");
+        View::bindVariable('reservations', $allReservations);
+        View::display();
     }
 
 }

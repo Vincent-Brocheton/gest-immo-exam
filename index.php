@@ -19,7 +19,7 @@ if(isset($_SESSION['user'])){
     if($_SESSION['user']->role === "HOTEL"){
         $router->addRoute(new Route("/new", "HotelController"));
         $router->addRoute(new Route("/add", "HotelController"));
-        $router->addRoute(new Route("/see", "HotelController"));
+        $router->addRoute(new Route("/all", "HotelController"));
         $router->addRoute(new Route("/reservations", "HotelController"));
     } elseif ($_SESSION['user']->role === "CLIENT"){
         $router->addRoute(new Route("/hotels", "ClientController"));
